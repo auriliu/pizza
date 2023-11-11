@@ -9,7 +9,7 @@ import spinaci from "./pizzas/spinaci.jpg";
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -19,8 +19,8 @@ function App() {
 
 function Pizza() {
   return (
-    <div>
-      <h1>Pizza Spinaci</h1>
+    <div className="pizza">
+      <h3>Pizza Spinaci</h3>
       <p>Tomato, mozarella, spinach, and ricotta cheese</p>
       <img src={spinaci} alt="spinaci pizza" />
     </div>
@@ -28,24 +28,34 @@ function Pizza() {
 }
 
 function Header() {
-  return <h1>fast react pizza co.</h1>;
+  return (
+    <header className="header">
+      <h1>fast react pizza co.</h1>
+    </header>
+  );
 }
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>our menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
-    </div>
+      <div className="pizzas">
+        <Pizza />
+        <Pizza />
+        <Pizza />
+      </div>
+    </main>
   );
 }
 function Footer() {
+  const hour = new Date().getHours();
+  const isOpen = hour >= 12 && hour <= 22;
+  console.log(isOpen);
+
   return (
-    <div>
+    <footer className="footer">
       <p>we're currently open</p>
       <p>current time: {new Date().toLocaleTimeString()} </p>
-    </div>
+    </footer>
   );
 }
 
