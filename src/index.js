@@ -39,6 +39,7 @@ function Menu() {
               ingredients={pizza.ingredients}
               price={pizza.price}
               photo={pizza.photoName}
+              soldOut={pizza.soldOut}
             />
           ))}
           {/* <Pizza
@@ -56,6 +57,8 @@ function Menu() {
 }
 
 function Pizza(props) {
+  if (props.soldOut) return null;
+
   return (
     <li className="pizza">
       <img src={props.photo} alt={props.name} />
