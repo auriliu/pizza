@@ -24,11 +24,12 @@ function Header() {
 }
 function Menu() {
   const pizzas = pizzaData;
+  // const pizzas = 0;
   const numPizzas = pizzas.length;
   return (
     <main className="menu">
       <h2>our menu</h2>
-      {numPizzas > 0 && (
+      {numPizzas > 0 ? (
         <ul className="pizzas">
           {/* rendering lists */}
           {pizzas.map((pizza) => (
@@ -47,6 +48,8 @@ function Menu() {
           price={10}
         /> */}
         </ul>
+      ) : (
+        <p>no pizzas to show.</p>
       )}
     </main>
   );
