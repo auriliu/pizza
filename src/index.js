@@ -56,16 +56,16 @@ function Menu() {
   );
 }
 
-function Pizza(props) {
-  if (props.soldOut) return null;
+function Pizza({ soldOut, photo, name, ingredients, price }) {
+  if (soldOut) return null;
 
   return (
     <li className="pizza">
-      <img src={props.photo} alt={props.name} />
+      <img src={photo} alt={name} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredients}</p>
-        <span>{props.price}</span>
+        <h3>{name}</h3>
+        <p>{ingredients}</p>
+        <span>{price}</span>
       </div>
     </li>
   );
