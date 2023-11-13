@@ -3,10 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import "./index.css";
 
-// import { pizzaData } from "./index.js";
-
-import spinaci from "./pizzas/spinaci.jpg";
-import fungi from "./pizzas/funghi.jpg";
+import { pizzaData } from "./data.js";
 
 function App() {
   return (
@@ -29,34 +26,38 @@ function Menu() {
   return (
     <main className="menu">
       <h2>our menu</h2>
-      <div className="pizzas">
-        <Pizza
+      <ul className="pizzas">
+        {/* rendering lists */}
+        {pizzaData.map((pizza) => (
+          <Pizza
+            key={pizza.name}
+            name={pizza.name}
+            ingredients={pizza.ingredients}
+            price={pizza.price}
+            photo={pizza.photoName}
+          />
+        ))}
+        {/* <Pizza
           name="Pizza Spinaci"
           ingredients="Tomato, mozarella, spinach, and ricotta cheese"
           photo={spinaci}
           price={10}
-        />
-        <Pizza
-          name="Pizza Funghi"
-          ingredients="Tomato, mozarella, mushrooms, and onion"
-          photo={fungi}
-          price={12}
-        />
-      </div>
+        /> */}
+      </ul>
     </main>
   );
 }
 
 function Pizza(props) {
   return (
-    <div className="pizza">
+    <li className="pizza">
       <img src={props.photo} alt={props.name} />
       <div>
         <h3>{props.name}</h3>
         <p>{props.ingredients}</p>
         <span>{props.price}</span>
       </div>
-    </div>
+    </li>
   );
 }
 
