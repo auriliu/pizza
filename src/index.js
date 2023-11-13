@@ -23,27 +23,31 @@ function Header() {
   );
 }
 function Menu() {
+  const pizzas = pizzaData;
+  const numPizzas = pizzas.length;
   return (
     <main className="menu">
       <h2>our menu</h2>
-      <ul className="pizzas">
-        {/* rendering lists */}
-        {pizzaData.map((pizza) => (
-          <Pizza
-            key={pizza.name}
-            name={pizza.name}
-            ingredients={pizza.ingredients}
-            price={pizza.price}
-            photo={pizza.photoName}
-          />
-        ))}
-        {/* <Pizza
+      {numPizzas > 0 && (
+        <ul className="pizzas">
+          {/* rendering lists */}
+          {pizzas.map((pizza) => (
+            <Pizza
+              key={pizza.name}
+              name={pizza.name}
+              ingredients={pizza.ingredients}
+              price={pizza.price}
+              photo={pizza.photoName}
+            />
+          ))}
+          {/* <Pizza
           name="Pizza Spinaci"
           ingredients="Tomato, mozarella, spinach, and ricotta cheese"
           photo={spinaci}
           price={10}
         /> */}
-      </ul>
+        </ul>
+      )}
     </main>
   );
 }
@@ -68,8 +72,12 @@ function Footer() {
 
   return (
     <footer className="footer">
-      <p>we're currently open</p>
-      <p>current time: {new Date().toLocaleTimeString()} </p>
+      <div className="order">
+        {isOpen ? <p>we're currently open</p> : <p>we're currently closed</p>}
+        <p>current time: {new Date().toLocaleTimeString()} </p>
+
+        <button className="btn">order</button>
+      </div>
     </footer>
   );
 }
