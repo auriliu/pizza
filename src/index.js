@@ -6,6 +6,7 @@ import "./index.css";
 // import { pizzaData } from "./index.js";
 
 import spinaci from "./pizzas/spinaci.jpg";
+import fungi from "./pizzas/funghi.jpg";
 
 function App() {
   return (
@@ -13,16 +14,6 @@ function App() {
       <Header />
       <Menu />
       <Footer />
-    </div>
-  );
-}
-
-function Pizza() {
-  return (
-    <div className="pizza">
-      <h3>Pizza Spinaci</h3>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-      <img src={spinaci} alt="spinaci pizza" />
     </div>
   );
 }
@@ -39,13 +30,36 @@ function Menu() {
     <main className="menu">
       <h2>our menu</h2>
       <div className="pizzas">
-        <Pizza />
-        <Pizza />
-        <Pizza />
+        <Pizza
+          name="Pizza Spinaci"
+          ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+          photo={spinaci}
+          price={10}
+        />
+        <Pizza
+          name="Pizza Funghi"
+          ingredients="Tomato, mozarella, mushrooms, and onion"
+          photo={fungi}
+          price={12}
+        />
       </div>
     </main>
   );
 }
+
+function Pizza(props) {
+  return (
+    <div className="pizza">
+      <img src={props.photo} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price}</span>
+      </div>
+    </div>
+  );
+}
+
 function Footer() {
   const hour = new Date().getHours();
   const isOpen = hour >= 12 && hour <= 22;
