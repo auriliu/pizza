@@ -10,15 +10,24 @@ function App() {
     <div className="container">
       <Header />
       <Menu />
-      <Footer />
     </div>
   );
 }
 
 function Header() {
+  const hour = new Date().getHours();
+  const isOpen = hour >= 12 && hour <= 22;
   return (
     <header className="header">
-      <h1>fast react pizza co.</h1>
+      <h1>Urban Slice</h1>
+      <div className="order">
+        {isOpen ? <p>we're currently open</p> : <p>we're currently closed</p>}
+        <p>current time: {new Date().toLocaleTimeString()}</p>
+      </div>
+      <p>
+        123 Imaginary Lane <br /> Never Never Land, NL 00000 United Dreams of
+        Enchantment
+      </p>
     </header>
   );
 }
@@ -28,7 +37,6 @@ function Menu() {
   const numPizzas = pizzas.length;
   return (
     <main className="menu">
-      <h2>our menu</h2>
       {numPizzas > 0 ? (
         <ul className="pizzas">
           {/* rendering lists */}
@@ -65,26 +73,9 @@ function Pizza({ soldOut, photo, name, ingredients, price }) {
       <div>
         <h3>{name}</h3>
         <p>{ingredients}</p>
-        {soldOut ? "SOLD OUT" : price}
+        {soldOut ? "SOLD OUT" : `£ ${price}`}
       </div>
     </li>
-  );
-}
-
-function Footer() {
-  const hour = new Date().getHours();
-  const isOpen = hour >= 12 && hour <= 22;
-  console.log(isOpen);
-
-  return (
-    <footer className="footer">
-      <div className="order">
-        {isOpen ? <p>we're currently open</p> : <p>we're currently closed</p>}
-        <p>current time: {new Date().toLocaleTimeString()} </p>
-
-        <button className="btn">order</button>
-      </div>
-    </footer>
   );
 }
 

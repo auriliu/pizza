@@ -16,7 +16,7 @@ body {
   font-weight: 400;
   background-color: #f7f2e9;
   border-bottom: 1.6rem solid #edc84b;
-  min-height: 100vh;
+  height: 100vh;
   padding: 3.2rem;
   padding-bottom: 6rem;
 }
@@ -34,7 +34,11 @@ body {
 /* *************** */
 
 .header {
-  align-self: stretch;
+  /* align-self: stretch; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
 }
 
 .header h1 {
@@ -50,25 +54,6 @@ body {
   position: relative;
   width: 100%;
   display: block;
-}
-
-.header h1::before,
-.header h1::after {
-  display: block;
-  content: "";
-  height: 3px;
-  width: 4rem;
-  background-color: #edc84b;
-  position: absolute;
-  top: calc(50% - 1px);
-}
-
-.header h1::before {
-  left: 0;
-}
-
-.header h1::after {
-  right: 0;
 }
 
 /* *************** */
