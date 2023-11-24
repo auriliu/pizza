@@ -15,19 +15,36 @@ function App() {
 }
 
 function Header() {
-  const hour = new Date().getHours();
-  const isOpen = hour >= 12 && hour <= 22;
+  const now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+
+  hours = hours < 10 ? "0" + hours : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+
+  const isOpen = hours >= 14 && hours < 23;
+
   return (
     <header className="header">
       <h1>Urban Slice</h1>
-      <div className="order">
-        {isOpen ? <p>we're currently open</p> : <p>we're currently closed</p>}
-        <p>current time: {new Date().toLocaleTimeString()}</p>
+      <div>
+        <p>Local time: {`${hours}:${minutes}`}</p>
+        {isOpen ? (
+          <>
+            <p>We're currently open. Come to visit us at:</p>
+          </>
+        ) : (
+          <p>We're closed. We'll open at 14:00</p>
+        )}
+        {/* <p>local time: {new Date().toLocaleTimeString()}</p> */}
       </div>
-      <p>
-        123 Imaginary Lane <br /> Never Never Land, NL 00000 United Dreams of
-        Enchantment
-      </p>
+      <div>
+        <p>
+          123 Imaginary Lane
+          <br /> Never Never Land, NL 00000
+          <br /> United Dreams of Enchantment
+        </p>
+      </div>
     </header>
   );
 }
