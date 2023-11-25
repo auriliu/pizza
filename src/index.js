@@ -26,24 +26,22 @@ function Header() {
 
   return (
     <header className="header">
-      <h1>Urban Slice</h1>
+      <h1>Slice</h1>
       <div>
-        <p>Local time: {`${hours}:${minutes}`}</p>
+        <h3>Local time: {`${hours}:${minutes}`}</h3>
+        <br />
         {isOpen ? (
-          <>
-            <p>We're currently open. Come to visit us at:</p>
-          </>
+          <h3>
+            We're <span className="accent">open</span>, visit us at:
+            <br /> 123 Imaginary Lane,
+            <br /> Never Never Land, NL 00000
+          </h3>
         ) : (
-          <p>We're closed. We'll open at 14:00</p>
+          <h3>
+            We're <span className="accent">closed</span>, visit us from 14:00 🍕
+          </h3>
         )}
         {/* <p>local time: {new Date().toLocaleTimeString()}</p> */}
-      </div>
-      <div>
-        <p>
-          123 Imaginary Lane
-          <br /> Never Never Land, NL 00000
-          <br /> United Dreams of Enchantment
-        </p>
       </div>
     </header>
   );
@@ -90,7 +88,7 @@ function Pizza({ soldOut, photo, name, ingredients, price }) {
       <div>
         <h3>{name}</h3>
         <p>{ingredients}</p>
-        <span className="price">{soldOut ? "SOLD OUT" : `€ ${price}`}</span>
+        <span className="accent">{soldOut ? "SOLD OUT" : `€ ${price}`}</span>
       </div>
     </li>
   );
