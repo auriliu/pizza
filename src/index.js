@@ -54,7 +54,6 @@ function Menu() {
     <main className="menu">
       {numPizzas > 0 ? (
         <ul className="pizzas">
-          {/* rendering lists */}
           {pizzas.map((pizza) => (
             <Pizza
               key={pizza.name}
@@ -65,12 +64,6 @@ function Menu() {
               soldOut={pizza.soldOut}
             />
           ))}
-          {/* <Pizza
-          name="Pizza Spinaci"
-          ingredients="Tomato, mozarella, spinach, and ricotta cheese"
-          photo={spinaci}
-          price={10}
-        /> */}
         </ul>
       ) : (
         <p>no pizzas to show.</p>

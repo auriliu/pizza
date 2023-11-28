@@ -11,6 +11,8 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: "Roboto Mono", sans-serif;
   color: #fff;
   font-weight: 400;
@@ -20,6 +22,7 @@ body {
   background-size: cover;
   min-height: 100vh;
   padding: 3.2rem;
+  overflow-y: hidden;
 }
 
 img {
@@ -64,19 +67,25 @@ img {
 
 .pizzas {
   list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4.8rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.pizzas li {
+  width: 100%;
 }
 
 .pizza {
-  display: flex;
-  gap: 3.2rem;
+  max-width: 200px;
 }
 
 .pizza img {
   width: 12rem;
   aspect-ratio: 1;
+
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .pizza div {
@@ -111,20 +120,4 @@ img {
 .accent {
   color: #e9bb24;
   font-weight: bold;
-}
-
-.btn {
-  color: inherit;
-  font-family: inherit;
-  border: none;
-  font-size: 1.4rem;
-  font-weight: 500;
-  background-color: #edc84b;
-  padding: 1.4rem 3.2rem;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn:hover {
-  background-color: #e9bb24;
 }
